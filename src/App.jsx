@@ -30,7 +30,7 @@ function Home() {
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch("https://event-app-backend-1-ld95.onrender.com");
+      const res = await fetch("https://event-app-backend-1-ld95.onrender.com/api/events");
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
       setEvents(data);
@@ -42,7 +42,7 @@ function Home() {
 
   const fetchTestData = async () => {
     try {
-      const res = await fetch("https://event-app-backend-1-ld95.onrender.com");
+      const res = await fetch("https://event-app-backend-1-ld95.onrender.com/api/events");
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
       setBackendData(data);
@@ -71,7 +71,7 @@ function Home() {
       if (date) query.append("date", date);
 
       const res = await fetch(
-        `https://event-app-backend-1-ld95.onrender.com`
+        `https://event-app-backend-1-ld95.onrender.com/api/events`
       );
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
