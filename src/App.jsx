@@ -30,7 +30,7 @@ function Home() {
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/events");
+      const res = await fetch("https://event-app-backend-1-ld95.onrender.com");
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       const data = await res.json();
       setEvents(data);
