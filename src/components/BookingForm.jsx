@@ -24,7 +24,7 @@ const BookingForm = ({ event, onBack }) => {
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch("https://event-app-backend-1-ld95.onrender.com");
+      const res = await fetch("https://event-app-backend-1-ld95.onrender.com/api/events");
       const data = await res.json();
       setBookings(data);
     } catch (err) {
@@ -61,7 +61,7 @@ const BookingForm = ({ event, onBack }) => {
     console.log("📤 Booking data:", bookingData);
 
     try {
-      const res = await fetch("https://event-app-backend-1-ld95.onrender.com", {
+      const res = await fetch("https://event-app-backend-1-ld95.onrender.com/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),
