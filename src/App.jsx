@@ -183,7 +183,7 @@ function Home() {
         </p>
       </div>
 
-      {/* Backend Test */}
+      {/*  
       {backendData && (
         <div
           style={{
@@ -198,6 +198,7 @@ function Home() {
           <strong>Test API Response:</strong> {JSON.stringify(backendData)}
         </div>
       )}
+      */}
 
       {showBookingForm && selectedEvent ? (
         <BookingForm event={selectedEvent} onBack={handleBackToEvents} />
@@ -228,41 +229,55 @@ function Home() {
             </button>
           </div>
 
-          {showEvents && filteredEvents.length > 0 && (
-            <div
-              className="events-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "20px",
-                maxWidth: "1200px",
-                margin: "20px auto",
-              }}
-            >
-              {filteredEvents.map((event) => (
-                <div
-                  key={event._id}
-                  className="card"
-                  style={{
-                    backgroundColor: "#fff",
-                    borderRadius: "8px",
-                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <EventCard
-                    event={event}
-                    onClick={handleBookEventClick}
-                    onDelete={handleDeleteEvent}
-                    currentUser={currentUser}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+       return (
+  <div className="App">
+    {/* 🔹 Your header, search, and filters will be here */}
+
+    {/* 🔹 Show Events Section */}
+    {showEvents && filteredEvents.length > 0 && (
+      <div
+        className="events-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "20px",
+          maxWidth: "1200px",
+          margin: "20px auto",
+        }}
+      >
+        {filteredEvents.map((event) => (
+          <div
+            key={event._id}
+            className="card"
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "8px",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "100%",
+            }}
+          >
+            <EventCard
+              event={event}
+              onClick={handleBookEventClick}
+              onDelete={handleDeleteEvent}
+              currentUser={currentUser}
+            />
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* 🔹 Optional: If no events match */}
+    {showEvents && filteredEvents.length === 0 && (
+      <p style={{ textAlign: "center", marginTop: "20px", color: "#666" }}>
+        No events found. Try adjusting your filters.
+      </p>
+    )}
+  </div>
+);
 
           {!showEvents && (
             <p
