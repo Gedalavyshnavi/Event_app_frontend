@@ -23,7 +23,7 @@ const EventCard = ({ event, onClick, onDelete, currentUser }) => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:4000/api/events/${_id}`, {
+      const res = await fetch(`https://event-app-backend-1-ld95.onrender.com`, {
         method: "DELETE",
       });
 
