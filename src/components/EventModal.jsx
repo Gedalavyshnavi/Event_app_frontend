@@ -8,13 +8,13 @@ const EventModal = ({ event, isOpen, onClose, bookingId, fetchBookings }) => {
   // ✅ Cancel Booking Logic
   const handleCancelBooking = async (bookingId) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/bookings/${bookingId}`, {
+      const res = await fetch(`https://event-app-backend-1-ld95.onrender.com`, {
         method: "DELETE",
       });
 
       if (res.ok) {
         alert("Your booking is cancelled ✅");
-        if (fetchBookings) fetchBookings(); // Refresh the list if provided
+        if (fetchBookings) fetchBookings(); 
         onClose(); // Close the modal
       } else {
         alert("Failed to cancel booking ❌");
